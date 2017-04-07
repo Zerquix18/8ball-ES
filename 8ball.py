@@ -5,7 +5,6 @@
 	Author: Zerquix18
 '''
 
-import re
 import random
 import json
 import sys
@@ -36,8 +35,8 @@ class StdOutListener(StreamListener):
         text         = data['text']
         print 'Received: ' + text
         # it has to be a mention and end with a question mark
-        if not text.endswith('?'):
-            print 'not a mention...'
+        if "?" not in text:
+            print 'not a question...'
             return
         # ok now let's reply
         content  = random.choice(possible_replies)
